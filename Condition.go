@@ -38,6 +38,16 @@ func FirstNonNil(values ...interface{}) interface{} {
 	return nil
 }
 
+// FirstErrorOrNil returns the first non nil error; return nil if all errors are nil
+func FirstErrorOrNil(list ...error) error {
+	for _, e := range list {
+		if e != nil {
+			return e
+		}
+	}
+	return nil
+}
+
 // IfThenElseString evaluates a condition, if true returns the first parameter otherwise the second
 func IfThenElseString(condition bool, a string, b string) string {
 	if condition {
