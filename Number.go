@@ -23,3 +23,14 @@ func ToIntIfFail(x string, def int) int {
 	i, err := strconv.Atoi(x)
 	return IfThenElseInt(err == nil, i, def)
 }
+
+// ClampInt return value which is >= lowerLimit and <= upperLimit
+func ClampInt(value, lowerLimit, upperLimit int) int {
+	if value < lowerLimit {
+		return lowerLimit
+	}
+	if value > upperLimit {
+		return upperLimit
+	}
+	return value
+}
